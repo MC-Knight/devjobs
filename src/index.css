@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh sans", sans-serif;
+}
+
+:root {
+  --light-grey: #9daec2;
+  --violet-color: #5964e0;
+  --dark-blue-color: #19202d;
+  --background-color: #f4f6f8;
+  --light-grey-hover: #6e8098;
+}
+
+.dark-mode {
+  --light-grey: #6e8098;
+  --violet-color: #5964e0;
+  --dark-blue-color: #ffffff;
+  --background-color: #313743;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--light-gray);
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0px;
+}
+
+.home-upper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 25vh;
+  background-image: url(./assets/desktop/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  background: red;
+}
+
+.home-lower {
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.home-lower-jobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  align-items: start;
+  justify-content: center;
+  padding: 100px 5%;
+  width: 100%;
+}
+
+.job-card {
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 30px 30px;
+  margin-top: 40px;
+}
+
+.company-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  margin-top: -25px;
+  margin-left: 30px;
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.job-condition {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  /* margin-top: 20px; */
+  font-size: 1rem;
+  color: var(--light-grey-hover);
+  font-weight: 400;
+  line-height: 162%;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.job-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.job-title h2 {
+  width: 99%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-blue-color);
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.job-title h2:hover {
+  color: var(--light-grey-hover);
+}
+
+.job-company {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.job-company p {
+  padding: 10px 0px;
+  font-size: 1rem;
+  color: var(--light-grey-hover);
+  font-weight: 400;
+  line-height: 162%;
+}
+
+.job-location {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+.job-location p {
+  color: var(--violet-color);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 162%;
+}
+
+.home-btn {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.home-btn button {
+  width: 140px;
+  height: 50px;
+  border: 1px solid var(--violet-color);
+  background-color: var(--violet-color);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.home-btn p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--light-grey-hover);
+}
