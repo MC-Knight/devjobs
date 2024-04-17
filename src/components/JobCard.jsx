@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 function JobCard({ job }) {
+  const navigate = useNavigate();
+
+  const jobDetail = () => {
+    navigate(`/job/${job.id}`);
+  };
   return (
     <div className="job-card">
       <div
@@ -17,7 +23,7 @@ function JobCard({ job }) {
       </div>
 
       <div className="job-title">
-        <h2>{job.position}</h2>
+        <h2 onClick={jobDetail}>{job.position}</h2>
       </div>
 
       <div className="job-company">
