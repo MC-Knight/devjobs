@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
 import data from "../assets/data/data";
+import Logo from "../components/Logo";
 
 function Home() {
   const [dataItem, setDataItem] = useState([]);
@@ -17,7 +18,9 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="home-upper"></div>
+      <div className="home-upper">
+        <Logo />
+      </div>
       <div className="home-lower">
         <div className="home-lower-jobs">
           {dataItem.length > 0 &&

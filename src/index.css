@@ -7,17 +7,20 @@
 
 :root {
   --light-grey: #9daec2;
+  --light-violete: #939bf4;
   --violet-color: #5964e0;
   --dark-blue-color: #19202d;
   --background-color: #f4f6f8;
   --light-grey-hover: #6e8098;
+  --light-card: #ffffff;
 }
 
 .dark-mode {
+  --light-card: #19202d;
   --light-grey: #6e8098;
   --violet-color: #5964e0;
   --dark-blue-color: #ffffff;
-  --background-color: #313743;
+  --background-color: #121721;
 }
 
 html {
@@ -27,6 +30,7 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--light-gray);
+  overflow-x: hidden;
 }
 
 .home {
@@ -36,6 +40,9 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 0px;
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .home-upper {
@@ -43,22 +50,72 @@ body {
   top: 0;
   z-index: 1;
   width: 100%;
-  height: 25vh;
-  background-image: url(./assets/desktop/bg-pattern-header.svg);
+  min-height: 25vh;
+  background: url(./assets/desktop/bg-pattern-header.svg);
   background-repeat: no-repeat;
-  background-position: top right;
-  background-size: contain;
-  background: red;
+  background-size: cover;
+  background-position: top left;
+  padding: 0px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.theme-toggle-btn {
+  background-color: #fff;
+  width: 50px;
+  height: 25px;
+  border: 1px solid #ffffff;
+  border-radius: 1000px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.theme-toggle-btn::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--violet-color);
+  border-radius: 50%;
+  transition: 0.3s;
+  top: 0;
+  left: 0;
+  margin: 4px;
+}
+.theme-toggle-btn:hover::before {
+  background-color: var(--light-violete);
+}
+.theme-toggle-btn::before:hover {
+  background-color: var(--light-violete);
+}
+
+.theme-toggle-btn.dark-mode::before {
+  left: 25px;
 }
 
 .home-lower {
-  height: 75vh;
+  min-height: 75vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  overflow-y: auto;
-  padding-bottom: 20px;
 }
 
 .home-lower-jobs {
@@ -67,19 +124,20 @@ body {
   grid-gap: 30px;
   align-items: start;
   justify-content: center;
-  padding: 100px 5%;
+  padding: 100px 6%;
   width: 100%;
 }
 
 .job-card {
   position: relative;
-  background: #ffffff;
+  background: var(--light-card);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 50px 30px 30px;
   margin-top: 40px;
+  border-radius: 6px;
 }
 
 .company-logo {
@@ -107,7 +165,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  /* margin-top: 20px; */
   font-size: 1rem;
   color: var(--light-grey-hover);
   font-weight: 400;
@@ -187,6 +244,11 @@ body {
   font-weight: 700;
   border-radius: 0.5rem;
   cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.home-btn button:hover {
+  background-color: var(--light-violete);
 }
 
 .home-btn p {
