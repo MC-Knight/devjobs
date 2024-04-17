@@ -13,14 +13,18 @@
   --background-color: #f4f6f8;
   --light-grey-hover: #6e8098;
   --light-card: #ffffff;
+  --search-border: #e7e8e9;
+  --input-light: #19202d;
 }
 
 .dark-mode {
+  --input-light: #ffffff;
   --light-card: #19202d;
   --light-grey: #6e8098;
   --violet-color: #5964e0;
   --dark-blue-color: #ffffff;
   --background-color: #121721;
+  --search-border: #313743;
 }
 
 html {
@@ -255,4 +259,124 @@ body {
   font-size: 1rem;
   font-weight: 500;
   color: var(--light-grey-hover);
+}
+
+.search-bar {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -40px;
+  z-index: 5;
+  width: 89%;
+  height: 80px;
+  background: var(--light-card);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search-container-1 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 0px 30px;
+  border-right: 1px solid var(--search-border);
+}
+
+.search-container-1 input {
+  width: 100%;
+  height: 60%;
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  color: var(--input-light);
+  font-weight: 600;
+}
+
+.search-container-1 input::placeholder {
+  color: var(--light-grey-hover);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 162%;
+}
+
+.search-container-2 {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 0px 30px;
+  border-right: 1px solid var(--search-border);
+}
+
+.search-container-2 input {
+  width: 100%;
+  height: 60%;
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  color: var(--input-light);
+  font-weight: 600;
+}
+
+.search-container-2 input::placeholder {
+  color: var(--light-grey-hover);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 162%;
+}
+
+.search-btn {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0px 15px;
+}
+
+.search-btn input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 1px solid var(--light-card);
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  accent-color: var(--violet-color);
+}
+
+.search-btn p {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 162%;
+  color: var(--dark-blue-color);
+  margin-right: 20px;
+}
+
+.search-btn button {
+  width: 120px;
+  height: 50px;
+  border: 1px solid var(--violet-color);
+  background-color: var(--violet-color);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn button:hover {
+  background-color: var(--light-violete);
 }

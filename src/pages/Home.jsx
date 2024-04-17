@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
 import data from "../assets/data/data";
 import Logo from "../components/Logo";
+import SearchBar from "../components/SearchBar";
 
 function Home() {
   const [dataItem, setDataItem] = useState([]);
@@ -20,6 +21,7 @@ function Home() {
     <div className="home">
       <div className="home-upper">
         <Logo />
+        <SearchBar />
       </div>
       <div className="home-lower">
         <div className="home-lower-jobs">
