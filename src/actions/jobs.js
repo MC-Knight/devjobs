@@ -46,6 +46,34 @@ export const jobApi = createApi({
         method: "DELETE",
       }),
     }),
+    addJobRequirement: builder.mutation({
+      query: (data) => ({
+        url: "/job-requirements",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    addJobRole: builder.mutation({
+      query: (data) => ({
+        url: "/job-role",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateJobRequirement: builder.mutation({
+      query: (data) => ({
+        url: "/job-requirements",
+        method: "PUT",
+        body: data,
+      }),
+    }),
+    updateJobRole: builder.mutation({
+      query: (data) => ({
+        url: "/job-role",
+        method: "PUT",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -55,6 +83,10 @@ export const {
   useAddJobMutation,
   useUpdateJobMutation,
   useDeleteJobMutation,
+  useAddJobRequirementMutation,
+  useAddJobRoleMutation,
+  useUpdateJobRequirementMutation,
+  useUpdateJobRoleMutation,
 } = jobApi;
 
 export default jobApi.reducer;

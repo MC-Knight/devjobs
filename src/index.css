@@ -1311,6 +1311,160 @@ li {
   border: 1px solid var(--light-violete);
 }
 
+.modal form {
+  position: relative;
+  width: 50vw;
+  max-height: 80vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal form h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #19202d;
+}
+
+.modal form .input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.modal form .input-group p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6e8098;
+}
+
+.modal form .input-group button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--violet-color);
+  border: 1px solid var(--violet-color);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.modal form .input-group button:hover {
+  background: var(--light-violete);
+}
+
+.modal form .input-group-container {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #6e8098;
+  border-radius: 5px;
+  gap: 10px;
+  padding: 5px;
+}
+.remove-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--violet-color);
+  cursor: pointer;
+}
+
+.modal form .input-group-container input {
+  width: 100%;
+  height: 40px;
+  color: #6e8098;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  background: #ffffff;
+}
+
+.modal form .input-group-container input::placeholder {
+  color: #6e8098;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.modal form .input-group-container input[type="file"] {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.modal form .input-group-container textarea {
+  width: 100%;
+  min-height: 150px;
+  color: #6e8098;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  background: #ffffff;
+  resize: vertical;
+}
+
+.modal form .input-group-container textarea::placeholder {
+  color: #6e8098;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.form-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid var(--violet-color);
+  background-color: var(--violet-color);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background-color: var(--light-violete);
+}
+
+.form-actions button:first-child {
+  background-color: #ffffff;
+  color: var(--violet-color);
+  border: 1px solid var(--violet-color);
+}
+
+.form-actions button:first-child:hover {
+  color: #ffffff;
+  background-color: var(--light-violete);
+  border: 1px solid var(--light-violete);
+}
 /* dashboard end */
 
 .not-found {
@@ -1439,6 +1593,11 @@ li {
 
   .delete-job-modal {
     width: 90%;
+  }
+
+  .modal form {
+    width: 90%;
+    max-height: 90vh;
   }
 }
 
