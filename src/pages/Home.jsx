@@ -16,10 +16,14 @@ function Home() {
       </div>
       <div className="home-lower">
         <div className="home-lower-jobs">
-          {isLoading && <p>Loading...</p>}
-          {jobs.length > 0 &&
-            jobs.map((job) => <JobCard key={job.id} job={job} />)}
-          {jobs.length === 0 && <p>No Jobs at the moment</p>}
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : data.length !== 0 ? (
+            jobs.length > 0 &&
+            jobs.map((job) => <JobCard key={job.id} job={job} />)
+          ) : (
+            <p>No Jobs at the moment</p>
+          )}
         </div>
 
         {data.length > 0 && (

@@ -1,1 +1,2 @@
-export const backend_url = "http://localhost:7000/api/v1";
+export const backend_url =
+  "https://devjobsapi-production.up.railway.app/api/v1";
