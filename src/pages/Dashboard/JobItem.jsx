@@ -71,7 +71,7 @@ JobItem.propTypes = {
 export const NoItem = ({ title }) => {
   return (
     <tr className="no-content">
-      <td>
+      <td className="no-content-data">
         <span>{title}</span>
       </td>
     </tr>
@@ -85,7 +85,7 @@ NoItem.propTypes = {
 export const LoadingItem = () => {
   return (
     <tr className="no-content">
-      <td>
+      <td className="no-content-data">
         <span>Loading...</span>
       </td>
     </tr>

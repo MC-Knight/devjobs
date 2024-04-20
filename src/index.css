@@ -139,6 +139,12 @@ body {
   width: 100%;
 }
 
+.home-lower-jobs p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--light-grey-hover);
+}
+
 .job-card {
   position: relative;
   background: var(--light-card);
@@ -1191,11 +1197,18 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px;
+  padding: 10px 0px;
   color: var(--dark-blue-color);
   font-size: 15px;
   text-transform: lowercase;
   font-weight: 400;
+}
+
+.no-content .no-content-data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal {
