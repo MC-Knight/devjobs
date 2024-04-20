@@ -26,9 +26,35 @@ export const jobApi = createApi({
         method: "GET",
       }),
     }),
+    addJob: builder.mutation({
+      query: (data) => ({
+        url: "/jobs",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateJob: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/jobs/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
+    deleteJob: builder.mutation({
+      query: (id) => ({
+        url: `/jobs/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetJobsMutation, useGetJobMutation } = jobApi;
+export const {
+  useGetJobsMutation,
+  useGetJobMutation,
+  useAddJobMutation,
+  useUpdateJobMutation,
+  useDeleteJobMutation,
+} = jobApi;
 
 export default jobApi.reducer;

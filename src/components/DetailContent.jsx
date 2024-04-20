@@ -1,29 +1,13 @@
-import moment from "moment";
 import PropTypes from "prop-types";
+import { fromWhen } from "../utils/timeAgo";
 
 function DetailContent({ job }) {
-  function timeAgo(date) {
-    const duration = moment.duration(moment().diff(date));
-    const years = duration.years();
-    const months = duration.months();
-    const weeks = duration.weeks();
-    const days = duration.days();
-    const hours = duration.hours();
-    const minutes = duration.minutes();
-
-    if (years > 0) return `${years}y ago`;
-    if (months > 0) return `${months}mo ago`;
-    if (weeks > 0) return `${weeks}w ago`;
-    if (days > 0) return `${days}d ago`;
-    if (hours > 0) return `${hours}h ago`;
-    return `${minutes}m ago`;
-  }
   return (
     <div className="details-content">
       <div className="details-content-job">
         <div className="details-content-job-left">
           <div className="details-content-job-left-time">
-            <p>{timeAgo(moment(job.postedAt))}</p>
+            <p>{fromWhen(job.postedAt)}</p>
             <p>•</p>
             <p>{job.contract}</p>
           </div>

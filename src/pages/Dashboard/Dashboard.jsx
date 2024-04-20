@@ -2,12 +2,17 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo";
 import { isExpired, decodeToken } from "react-jwt";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { useModal } from "../../hook/use-modal-store";
+import { JobItem, LoadingItem, NoItem } from "./JobItem";
 
 //slice
 import { logoutUser } from "../../slices/user";
+import { DashboardContext } from "../../hook/dashboardContext";
 
 function Dashboard() {
+  const { onOpen } = useModal();
+
   const { authToken } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -23,8 +28,8 @@ function Dashboard() {
 
   useEffect(() => {
     if (!authToken) {
-      navigate("/", { replace: true });
       dispatch(logoutUser());
+      navigate("/", { replace: true });
     }
 
     if (authToken) {
@@ -36,10 +41,13 @@ function Dashboard() {
 
       const myDecodedToken = decodeToken(authToken);
       if (myDecodedToken.role !== "ADMIN") {
+        dispatch(logoutUser());
         navigate("/home", { replace: true });
       }
     }
-  }, [authToken, navigate, dispatch]);
+  }, []);
+
+  const { jobs, isLoading } = useContext(DashboardContext);
   return (
     <div className="dashboard">
       <div className="dashboard-upper">
@@ -48,12 +56,34 @@ function Dashboard() {
 
       <div className="dashboard-lower">
         <div className="dashboard-btn">
-          <button>Add new Job</button>
+          <button onClick={() => onOpen("addNewJob")}>Add new Job</button>
           <button onClick={goHome}>Home</button>
           <button onClick={logoutHandler}>Logout</button>
         </div>
 
-        <div className="dashboard-table">dashboard here</div>
+        <div className="dashboard-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Job Position</th>
+                <th>Company name</th>
+                <th>Location</th>
+                <th>Contract</th>
+                <th>Posted at</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <LoadingItem />
+              ) : jobs.length > 0 ? (
+                jobs.map((job) => <JobItem key={job.id} job={job} />)
+              ) : (
+                <NoItem title="No Jobs at the moment" />
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

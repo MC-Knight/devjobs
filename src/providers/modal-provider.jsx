@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import AddJobModal from "../components/Modals/AddJobModal";
+import DeleteJobModal from "../components/Modals/DeleteJobModal";
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -11,5 +13,10 @@ export const ModalProvider = () => {
     return null;
   }
 
-  return <></>;
+  return (
+    <>
+      <AddJobModal />
+      <DeleteJobModal />
+    </>
+  );
 };

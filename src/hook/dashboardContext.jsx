@@ -10,9 +10,9 @@ import { setJobs } from "../slices/job";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
-export const HomeContext = createContext();
+export const DashboardContext = createContext();
 
-export const HomeProvider = ({ children }) => {
+export const DashboardProvider = ({ children }) => {
   const { addedJob } = useJobsStore();
   const dispatch = useDispatch();
 
@@ -32,7 +32,6 @@ export const HomeProvider = ({ children }) => {
 
   const { jobs } = useSelector((state) => state.job);
   const [jobsData, setJobsData] = useState(jobs);
-  const [jobsLimit, setJobsLimit] = useState(9);
 
   useEffect(() => {
     getJobdHandler();
@@ -42,30 +41,18 @@ export const HomeProvider = ({ children }) => {
     setJobsData(jobs);
   }, [jobs]);
 
-  useEffect(() => {
-    const limitedData = jobs.slice(0, jobsLimit);
-    setJobsData(limitedData);
-  }, [jobsLimit, jobs]);
-
-  function moreHandler() {
-    setJobsLimit(jobsLimit + 6);
-  }
-
   return (
-    <HomeContext.Provider
+    <DashboardContext.Provider
       value={{
-        data: jobs,
         jobs: jobsData,
         isLoading,
-        moreHandler,
-        jobsLimit,
       }}
     >
       {children}
-    </HomeContext.Provider>
+    </DashboardContext.Provider>
   );
 };
 
-HomeProvider.propTypes = {
+DashboardProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
