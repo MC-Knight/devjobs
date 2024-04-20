@@ -793,15 +793,18 @@ li {
 
 .login-right .register-form {
   width: 70%;
+  max-height: 80vh;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 15px;
   padding: 30px 40px;
   background: #19202d;
   border-radius: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .input-group {
@@ -840,7 +843,7 @@ li {
   padding: 0px 10px;
   outline: none;
   border: none;
-  background: transparent;
+  background: #121721;
 }
 
 .icon {
@@ -860,11 +863,11 @@ li {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 7px;
 }
 
 .input-group-2 p {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--light-grey-hover);
 }
@@ -890,7 +893,7 @@ li {
   padding: 0px 10px;
   outline: none;
   border: none;
-  background: transparent;
+  background: #121721;
 }
 
 .input-group-container-2 input::placeholder {
@@ -912,6 +915,7 @@ li {
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  padding: 20px;
 }
 
 .login button:hover {
@@ -942,6 +946,12 @@ li {
 
 .login-create-account a:hover {
   color: var(--light-violete);
+}
+
+.error {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--violet-color);
 }
 /* login end */
 
@@ -989,6 +999,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 20px;
 }
 
 .dashboard-btn button {
@@ -999,7 +1010,7 @@ li {
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   cursor: pointer;
 }
 

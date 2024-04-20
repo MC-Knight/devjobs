@@ -1,10 +1,10 @@
 import { backend_url } from "../utils/services";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const jobApi = createApi({
-  reducerPath: "jobsApi",
+export const userApi = createApi({
+  reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: backend_url,
+    baseUrl: backend_url + "/users",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.authToken;
       if (token) {
@@ -14,21 +14,21 @@ export const jobApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getJobs: builder.mutation({
-      query: () => ({
-        url: "/jobs",
-        method: "GET",
+    loginUser: builder.mutation({
+      query: (data) => ({
+        url: "/login",
+        method: "POST",
+        body: data,
       }),
     }),
-    getJob: builder.mutation({
-      query: (id) => ({
-        url: `/jobs/${id}`,
-        method: "GET",
+    registerUser: builder.mutation({
+      query: (data) => ({
+        url: "/register",
+        method: "POST",
+        body: data,
       }),
     }),
   }),
 });
 
-export const { useGetJobsMutation, useGetJobMutation } = jobApi;
-
-export default jobApi.reducer;
+export const { useLoginUserMutation, useRegisterUserMutation } = userApi;

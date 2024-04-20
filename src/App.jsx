@@ -12,15 +12,15 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route
-            path="/"
+            path="/home"
             element={
               <HomeProvider>
                 <Home />
               </HomeProvider>
             }
           />
-          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/job/:id" element={<Job />} />
           <Route path="/dashboard" element={<Dashboard />} />
