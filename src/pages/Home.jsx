@@ -5,21 +5,30 @@ import SearchBar from "../components/SearchBar";
 import { HomeContext } from "../hook/context";
 
 function Home() {
-  const { data, jobs, isLoading, moreHandler, jobsLimit } =
-    useContext(HomeContext);
+  const {
+    data,
+    jobs,
+    isLoading,
+    moreHandler,
+    jobsLimit,
+    searchByLocation,
+    searchByCompanyOrPosition,
+  } = useContext(HomeContext);
 
   return (
     <div className="home">
       <div className="home-upper">
         <Logo />
-        <SearchBar />
+        <SearchBar
+          onLocationSearch={searchByLocation}
+          onCompanyOrPositionSearch={searchByCompanyOrPosition}
+        />
       </div>
       <div className="home-lower">
         <div className="home-lower-jobs">
           {isLoading ? (
             <p>Loading...</p>
-          ) : data.length !== 0 ? (
-            jobs.length > 0 &&
+          ) : jobs.length !== 0 ? (
             jobs.map((job) => <JobCard key={job.id} job={job} />)
           ) : (
             <p>No Jobs at the moment</p>
