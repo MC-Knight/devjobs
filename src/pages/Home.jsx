@@ -13,6 +13,7 @@ function Home() {
     jobsLimit,
     searchByLocation,
     searchByCompanyOrPosition,
+    searchByFullTime,
   } = useContext(HomeContext);
 
   return (
@@ -22,6 +23,7 @@ function Home() {
         <SearchBar
           onLocationSearch={searchByLocation}
           onCompanyOrPositionSearch={searchByCompanyOrPosition}
+          onFullTimeSearch={searchByFullTime}
         />
       </div>
       <div className="home-lower">

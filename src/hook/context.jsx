@@ -54,6 +54,7 @@ export const HomeProvider = ({ children }) => {
   const [searchTermLocation, setSearchTermLocation] = useState("");
   const [searchTermCompanyOrPosition, setSearchTermCompanyOrPosition] =
     useState("");
+  const [searchTermFullTime, setSearchTermFullTime] = useState(false);
 
   const searchByLocation = (location) => {
     setSearchTermLocation(location);
@@ -61,6 +62,10 @@ export const HomeProvider = ({ children }) => {
 
   const searchByCompanyOrPosition = (companyorPosition) => {
     setSearchTermCompanyOrPosition(companyorPosition);
+  };
+
+  const searchByFullTime = (fullTime) => {
+    setSearchTermFullTime(fullTime);
   };
 
   useEffect(() => {
@@ -78,10 +83,18 @@ export const HomeProvider = ({ children }) => {
             job.position
               .toLowerCase()
               .includes(searchTermCompanyOrPosition.toLowerCase())
+          : true) &&
+        (searchTermFullTime
+          ? job.contract.toLowerCase() === "Full Time".toLocaleLowerCase()
           : true)
     );
     setJobsData(filteredJobs);
-  }, [searchTermLocation, searchTermCompanyOrPosition, jobs]);
+  }, [
+    searchTermLocation,
+    searchTermCompanyOrPosition,
+    searchTermFullTime,
+    jobs,
+  ]);
 
   return (
     <HomeContext.Provider
@@ -93,6 +106,7 @@ export const HomeProvider = ({ children }) => {
         jobsLimit,
         searchByLocation,
         searchByCompanyOrPosition,
+        searchByFullTime,
       }}
     >
       {children}

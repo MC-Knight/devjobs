@@ -1,8 +1,13 @@
 import search from "../assets/desktop/icon-search.svg";
 import location from "../assets/desktop/icon-location.svg";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-function SearchBar({ onLocationSearch, onCompanyOrPositionSearch }) {
+function SearchBar({
+  onLocationSearch,
+  onCompanyOrPositionSearch,
+  onFullTimeSearch,
+}) {
   const handleLocationSearch = (event) => {
     onLocationSearch(event.target.value);
   };
@@ -10,6 +15,17 @@ function SearchBar({ onLocationSearch, onCompanyOrPositionSearch }) {
   const handleCompanyOrTitleSearch = (event) => {
     onCompanyOrPositionSearch(event.target.value);
   };
+
+  const [isFullTime, setIsFullTime] = useState(false);
+
+  const handleFullTimeSearch = (event) => {
+    setIsFullTime(event.target.checked);
+  };
+
+  const handleSearch = () => {
+    onFullTimeSearch(isFullTime);
+  };
+
   return (
     <div className="search-bar">
       <div className="search-container-1">
@@ -31,9 +47,9 @@ function SearchBar({ onLocationSearch, onCompanyOrPositionSearch }) {
       </div>
 
       <div className="search-btn">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={handleFullTimeSearch} />
         <p>Full Time Only</p>
-        <button>
+        <button onClick={handleSearch}>
           <span>Search</span>
         </button>
       </div>
@@ -44,6 +60,7 @@ function SearchBar({ onLocationSearch, onCompanyOrPositionSearch }) {
 SearchBar.propTypes = {
   onLocationSearch: PropTypes.func.isRequired,
   onCompanyOrPositionSearch: PropTypes.func.isRequired,
+  onFullTimeSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
