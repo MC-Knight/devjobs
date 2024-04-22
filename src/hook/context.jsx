@@ -51,6 +51,38 @@ export const HomeProvider = ({ children }) => {
     setJobsLimit(jobsLimit + 6);
   }
 
+  const [searchTermLocation, setSearchTermLocation] = useState("");
+  const [searchTermCompanyOrPosition, setSearchTermCompanyOrPosition] =
+    useState("");
+
+  const searchByLocation = (location) => {
+    setSearchTermLocation(location);
+  };
+
+  const searchByCompanyOrPosition = (companyorPosition) => {
+    setSearchTermCompanyOrPosition(companyorPosition);
+  };
+
+  useEffect(() => {
+    const filteredJobs = jobs.filter(
+      (job) =>
+        (searchTermLocation
+          ? job.location
+              .toLowerCase()
+              .includes(searchTermLocation.toLowerCase())
+          : true) &&
+        (searchTermCompanyOrPosition
+          ? job.company
+              .toLowerCase()
+              .includes(searchTermCompanyOrPosition.toLowerCase()) ||
+            job.position
+              .toLowerCase()
+              .includes(searchTermCompanyOrPosition.toLowerCase())
+          : true)
+    );
+    setJobsData(filteredJobs);
+  }, [searchTermLocation, searchTermCompanyOrPosition, jobs]);
+
   return (
     <HomeContext.Provider
       value={{
@@ -59,6 +91,8 @@ export const HomeProvider = ({ children }) => {
         isLoading,
         moreHandler,
         jobsLimit,
+        searchByLocation,
+        searchByCompanyOrPosition,
       }}
     >
       {children}
